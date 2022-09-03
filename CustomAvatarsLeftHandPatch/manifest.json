@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "CustomAvatarsLeftHandPatch",
+  "name": "CustomAvatarsLeftHandPatch",
+  "author": "Rynan",
+  "version": "0.0.1",
+  "description": "Reverse Z rotation of Custom Avatar's left hand",
+  "gameVersion": "1.20.0",
+  "dependsOn": {
+    "BSIPA": "^4.2.1",
+    "CustomAvatar": "^5.2.11"
+  }
+}
