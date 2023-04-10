@@ -4,6 +4,21 @@ using UnityEngine;
 
 namespace CustomAvatarsLeftHandPatch
 {
+    public enum ViveButton
+    {
+        RightMenu = KeyCode.JoystickButton0,
+        LeftMenu = KeyCode.JoystickButton2,
+        LeftTrackpadPress = KeyCode.JoystickButton8,
+        RightTrackpadPress = KeyCode.JoystickButton9,
+        LeftTrigger = KeyCode.JoystickButton14,
+        RightTrigger = KeyCode.JoystickButton15,
+        LeftTrackpadTouch = KeyCode.JoystickButton16,
+        RightTrackpadTouch = KeyCode.JoystickButton17,
+        LeftGrip = KeyCode.JoystickButton4,
+        RightGrip = KeyCode.JoystickButton5,
+        Space = KeyCode.Space,
+        None = KeyCode.None
+    }
     public class BeatSaberUtilitiesPatch
     {
         public static bool Prefix(DeviceUse use, ref Pose pose, MainSettingsModelSO ____mainSettingsModel, IVRPlatformHelper ____vrPlatformHelper, Func<OpenVRHelper, OpenVRHelper.VRControllerManufacturerName> ___kVrControllerManufacturerNameGetter)
@@ -24,6 +39,12 @@ namespace CustomAvatarsLeftHandPatch
             //{
             //    rotation.z = -rotation.z;
             //}
+            var leftGripKey = (KeyCode)ViveButton.LeftGrip;
+            var rightGripKey = (KeyCode)ViveButton.RightGrip;
+            if (Input.GetKey(leftGripKey) || Input.GetKey(rightGripKey))
+            {
+                rotation.y += 50;
+            }
 
             if (____vrPlatformHelper is OculusVRHelper)
             {
